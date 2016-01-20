@@ -11,7 +11,6 @@ for y in *.fq
 do
 fastqc -t 4 $y -o ./
 done
-unzip *.zip
 
 	echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">' > fastqc_summary.html
 	echo '<html' >> fastqc_summary.html
