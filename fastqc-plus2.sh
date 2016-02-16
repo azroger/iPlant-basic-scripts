@@ -8,8 +8,6 @@ do
 fastqc -t 4 $x -o ./
 done
 
-echo "Starting creation of summary file for FASTQC reports" >> HTProcess_Reads/HTProcess.log
-echo "First Phase of HTPROCESS1 FINISHED `date`" >> HTProcess_Reads/HTProcess.log
 
 	echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN">' > fastqc_summary.html
 	echo '<html' >> fastqc_summary.html
