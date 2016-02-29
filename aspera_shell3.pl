@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-my $ASPERA_HEAD = "/home/rogerab/.aspera";
+my $ASPERA_HEAD = "~/.aspera";
 my $ASPERA = "$ASPERA_HEAD/connect";
 
 
