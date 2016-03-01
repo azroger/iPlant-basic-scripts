@@ -37,3 +37,12 @@ print STDERR "Aspera command:\n$ASCP_COMMAND\n";
 
 my $res = system($ASCP_COMMAND);
 die "Aborted download\n" if $res != 0;
+
+my $sra_name = join '', "$FTP_ADDRESS", ".sra";
+
+my $dump_cmd = join "", "fastq-dump ", "$DESTINATION_DIR/", "$sra_name";
+
+print STDERR $dump_cmd, "\n";
+
+system($dump_cmd);
+
