@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cp $3 trimfile.txt
+#cp $3 trimfile.txt
+cat $4 | sed 's/ILLUMINACLIP:/ILLUMINACLIP:\/staging\//' > trimfile.txt
 mkdir trimout
 cuts=`cat trimfile.txt | grep -v \#`
 if [ $1 == PE ]; then
@@ -28,3 +29,4 @@ do
 				java -jar -Xmx1024m /root/Trimmomatic-0.33/trimmomatic-0.33.jar SE $x trimout/$z $cuts
 done
 fi
+mv trimfile.txt trimmersettings.txt
