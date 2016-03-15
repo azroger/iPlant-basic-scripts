@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #cp $3 trimfile.txt
-cat $4 | sed 's/ILLUMINACLIP:/ILLUMINACLIP:\/staging\//' > trimfile.txt
+cat $3 | sed 's/ILLUMINACLIP:/ILLUMINACLIP:\/staging\//' > trimfile.txt
 mkdir trimout
 cuts=`cat trimfile.txt | grep -v \#`
 if [ $1 == PE ]; then
