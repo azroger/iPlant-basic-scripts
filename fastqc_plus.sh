@@ -3,6 +3,25 @@
 #script to run fastqc and generate fancy reports in .html files with embedded images
 #Roger Barthelson
 
+usage() {
+      echo ""
+      echo "Usage : fastqc_plus fastq1/fq1 fastq2/fq2 ...."
+      echo ""
+}
+
+while getopts ":b:c:g:hr:t:x:" opt; do
+  case $opt in
+    h)
+      usage
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
 for x in *.fastq
 do
 fastqc -t 4 $x -o ./
