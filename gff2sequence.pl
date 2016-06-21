@@ -1,9 +1,13 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
+
+#this is a modification by Roger Barthelson of a script from the Sanger Institute, gff2seq.pl
+
 
 @fields = qw(seqname source feature start end score strand frame group);
 
 $width = 50;
 
+use lib "/usr/local2/AnnotateTranscripts/annotate_transcripts";
 use SeqFileIndex;
 use GFFTransform;
 
@@ -55,7 +59,7 @@ while (<>) {
     if (@nse) {
 	if (defined $prefix) { $name = "$f[0]x$f[3]-$f[4]x.$identity" }
 	elsif (defined $nameexpr) { $name = eval $nameexpr }
-	elsif ($exon and $regx =~ m/transcript*/ ) { $name = "$identity"".exon""$exon" } 
+	elsif ($exon and $regx =~ m/transcript*/ ) { $name = "$identity.exon$exon" } 
 	else { $name = "$identity" }
 	$seq = "";
 	foreach $nse (@nse) { $seq .= $index->getseq(@$nse) }
