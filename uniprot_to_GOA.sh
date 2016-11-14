@@ -9,7 +9,9 @@ export HOME=/var/lib/condor
 
 blastfile=$1
 
-sed 's/_/\t/' < $blastfile | cut -f2 | uniq > blastids.txt
+#Pull out uniprot ids, replace the underline with a tab to separate out the main protein ids
+cut -f2 $blastfile > blastf2
+sed 's/_/\t/' < blastf2 | cut -f1 | uniq > blastids.txt
 
 mkdir "splitgoa"
 
